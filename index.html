@@ -130,6 +130,20 @@
 
           <button type="submit">Enviar Mensagem</button>
         </form>
+        <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+        <script>
+          emailjs.init("service_lg2p1l9");
+
+          document
+            .getElementById("contact-form")
+            .addEventListener("submit", function (e) {
+              e.preventDefault();
+              emailjs
+                .sendForm("service_id", "template_id", this)
+                .then(() => alert("Mensagem enviada!"))
+                .catch(() => alert("Erro ao enviar."));
+            });
+        </script>
       </div>
     </section>
 
